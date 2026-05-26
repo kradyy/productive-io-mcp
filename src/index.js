@@ -306,6 +306,34 @@ function buildServer() {
   registerCollectionTool("productive_list_time_entries", "/time_entries", "Lists time entries.");
   registerCollectionTool("productive_list_people", "/people", "Lists people.");
   registerCollectionTool("productive_list_bookings", "/bookings", "Lists bookings.");
+  registerCollectionTool(
+    "productive_list_comments",
+    "/comments",
+    "Lists comments. Use query filters to scope by task/subtask context.",
+  );
+
+  server.registerTool(
+    "productive_get_comment",
+    {
+      description: "Fetches one comment by id.",
+      inputSchema: {
+        id: z
+          .union([z.string(), z.number().int()])
+          .describe("Comment id, e.g. 123456 or \"123456\"."),
+      },
+    },
+    async ({ id }) => {
+      try {
+        const result = await productiveRequest({
+          method: "GET",
+          path: `/comments/${id}`,
+        });
+        return textResult(result);
+      } catch (error) {
+        return errorResult(error);
+      }
+    },
+  );
 
   return server;
 }

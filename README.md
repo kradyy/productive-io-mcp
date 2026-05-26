@@ -101,6 +101,8 @@ codex mcp remove productive
 - `productive_list_time_entries`
 - `productive_list_people`
 - `productive_list_bookings`
+- `productive_list_comments`
+- `productive_get_comment`
 
 ## Endpoint Source
 
