@@ -313,6 +313,45 @@ function buildServer() {
   );
 
   server.registerTool(
+    "productive_list_task_comments",
+    {
+      description: "Lists comments for a specific task id.",
+      inputSchema: {
+        task_id: z
+          .union([z.string(), z.number().int()])
+          .describe("Task id, e.g. 17987571 or \"17987571\"."),
+        page_size: z
+          .number()
+          .int()
+          .min(1)
+          .max(200)
+          .default(50)
+          .describe("Max comments per page."),
+        sort: z
+          .enum(["created_at", "-created_at"])
+          .default("-created_at")
+          .describe("Sort order by creation timestamp."),
+      },
+    },
+    async ({ task_id, page_size, sort }) => {
+      try {
+        const result = await productiveRequest({
+          method: "GET",
+          path: "/comments",
+          query: {
+            "filter[task_id][eq]": String(task_id),
+            "page[size]": page_size,
+            sort,
+          },
+        });
+        return textResult(result);
+      } catch (error) {
+        return errorResult(error);
+      }
+    },
+  );
+
+  server.registerTool(
     "productive_get_comment",
     {
       description: "Fetches one comment by id.",
