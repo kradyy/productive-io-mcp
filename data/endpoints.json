@@ -1,0 +1,2801 @@
+{
+  "source": "https://developer.productive.io/reference/download_spec?format=json",
+  "path_count": 364,
+  "operation_count": 610,
+  "endpoints": [
+    {
+      "group": "activities",
+      "path": "/api/v2/activities",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "activities",
+      "path": "/api/v2/activities/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "approval_policies",
+      "path": "/api/v2/approval_policies",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "approval_policies",
+      "path": "/api/v2/approval_policies/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "approval_policies",
+      "path": "/api/v2/approval_policies/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "approval_policies",
+      "path": "/api/v2/approval_policies/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "approval_policy_assignments",
+      "path": "/api/v2/approval_policy_assignments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "approval_policy_assignments",
+      "path": "/api/v2/approval_policy_assignments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "approval_workflows",
+      "path": "/api/v2/approval_workflows",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "approval_workflows",
+      "path": "/api/v2/approval_workflows/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "attachments",
+      "path": "/api/v2/attachments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "attachments",
+      "path": "/api/v2/attachments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "automatic_invoicing_rules",
+      "path": "/api/v2/automatic_invoicing_rules",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "automatic_invoicing_rules",
+      "path": "/api/v2/automatic_invoicing_rules/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "bank_accounts",
+      "path": "/api/v2/bank_accounts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "bank_accounts",
+      "path": "/api/v2/bank_accounts/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "bank_accounts",
+      "path": "/api/v2/bank_accounts/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "bank_accounts",
+      "path": "/api/v2/bank_accounts/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "bills",
+      "path": "/api/v2/bills",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "bills",
+      "path": "/api/v2/bills/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/{id}/move",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/{id}/reposition",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "boards",
+      "path": "/api/v2/boards/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "bookings",
+      "path": "/api/v2/bookings",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "bookings",
+      "path": "/api/v2/bookings/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments/{id}/add_reaction",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments/{id}/pin",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments/{id}/remove_reaction",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "comments",
+      "path": "/api/v2/comments/{id}/unpin",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "companies",
+      "path": "/api/v2/companies",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "companies",
+      "path": "/api/v2/companies/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "companies",
+      "path": "/api/v2/companies/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "companies",
+      "path": "/api/v2/companies/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "contact_entries",
+      "path": "/api/v2/contact_entries",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "contact_entries",
+      "path": "/api/v2/contact_entries/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "contracts",
+      "path": "/api/v2/contracts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "contracts",
+      "path": "/api/v2/contracts/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "contracts",
+      "path": "/api/v2/contracts/{id}/generate",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "custom_domains",
+      "path": "/api/v2/custom_domains",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "custom_domains",
+      "path": "/api/v2/custom_domains/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "custom_field_options",
+      "path": "/api/v2/custom_field_options",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "custom_field_options",
+      "path": "/api/v2/custom_field_options/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "custom_field_options",
+      "path": "/api/v2/custom_field_options/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "custom_field_sections",
+      "path": "/api/v2/custom_field_sections",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "custom_field_sections",
+      "path": "/api/v2/custom_field_sections/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "custom_field_sections",
+      "path": "/api/v2/custom_field_sections/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "custom_fields",
+      "path": "/api/v2/custom_fields",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "custom_fields",
+      "path": "/api/v2/custom_fields/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "custom_fields",
+      "path": "/api/v2/custom_fields/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "dashboards",
+      "path": "/api/v2/dashboards",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "dashboards",
+      "path": "/api/v2/dashboards/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "dashboards",
+      "path": "/api/v2/dashboards/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deal_cost_rates",
+      "path": "/api/v2/deal_cost_rates",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "deal_cost_rates",
+      "path": "/api/v2/deal_cost_rates/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deal_statuses",
+      "path": "/api/v2/deal_statuses",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "deal_statuses",
+      "path": "/api/v2/deal_statuses/merge",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deal_statuses",
+      "path": "/api/v2/deal_statuses/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deal_statuses",
+      "path": "/api/v2/deal_statuses/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals/create_from_origin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals/{id}/close",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deals",
+      "path": "/api/v2/deals/{id}/open",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "deleted_items",
+      "path": "/api/v2/deleted_items",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "deleted_items",
+      "path": "/api/v2/deleted_items/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "deleted_items",
+      "path": "/api/v2/deleted_items/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions/{id}/reopen",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions/{id}/resolve",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions/{id}/subscribe",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "discussions",
+      "path": "/api/v2/discussions/{id}/unsubscribe",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "document_styles",
+      "path": "/api/v2/document_styles",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "document_styles",
+      "path": "/api/v2/document_styles/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "document_styles",
+      "path": "/api/v2/document_styles/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "document_types",
+      "path": "/api/v2/document_types",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "document_types",
+      "path": "/api/v2/document_types/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "document_types",
+      "path": "/api/v2/document_types/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "document_types",
+      "path": "/api/v2/document_types/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "einvoice_identities",
+      "path": "/api/v2/einvoice_identities",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "einvoice_identities",
+      "path": "/api/v2/einvoice_identities/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "emails",
+      "path": "/api/v2/emails",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "emails",
+      "path": "/api/v2/emails/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "emails",
+      "path": "/api/v2/emails/{id}/attach",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "emails",
+      "path": "/api/v2/emails/{id}/dismiss",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "entitlements",
+      "path": "/api/v2/entitlements",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "entitlements",
+      "path": "/api/v2/entitlements/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "events",
+      "path": "/api/v2/events",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "events",
+      "path": "/api/v2/events/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "events",
+      "path": "/api/v2/events/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "exchange_rates",
+      "path": "/api/v2/exchange_rates",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/bulk_approve",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/approve",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/export",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/export_update",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/reject",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/unapprove",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "expenses",
+      "path": "/api/v2/expenses/{id}/unreject",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "filters",
+      "path": "/api/v2/filters",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "filters",
+      "path": "/api/v2/filters/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/{id}/move",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/{id}/reposition",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "folders",
+      "path": "/api/v2/folders/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "holiday_calendars",
+      "path": "/api/v2/holiday_calendars",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "holiday_calendars",
+      "path": "/api/v2/holiday_calendars/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "holidays",
+      "path": "/api/v2/holidays",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "holidays",
+      "path": "/api/v2/holidays/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "integration_exporter_configurations",
+      "path": "/api/v2/integration_exporter_configurations",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "integration_exporter_configurations",
+      "path": "/api/v2/integration_exporter_configurations/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "integrations",
+      "path": "/api/v2/integrations",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "integrations",
+      "path": "/api/v2/integrations/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "integrations",
+      "path": "/api/v2/integrations/{id}/check",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "integrations",
+      "path": "/api/v2/integrations/{id}/connect",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invitations",
+      "path": "/api/v2/invitations",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "invitations",
+      "path": "/api/v2/invitations/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoice_attributions",
+      "path": "/api/v2/invoice_attributions",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "invoice_attributions",
+      "path": "/api/v2/invoice_attributions/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoice_templates",
+      "path": "/api/v2/invoice_templates",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "invoice_templates",
+      "path": "/api/v2/invoice_templates/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/export",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/export_update",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/finalize",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/preview",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/send",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "invoices",
+      "path": "/api/v2/invoices/{id}/send_einvoice",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "line_items",
+      "path": "/api/v2/line_items",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    },
+    {
+      "group": "line_items",
+      "path": "/api/v2/line_items/generate",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "line_items",
+      "path": "/api/v2/line_items/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "lost_reasons",
+      "path": "/api/v2/lost_reasons",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "lost_reasons",
+      "path": "/api/v2/lost_reasons/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "lost_reasons",
+      "path": "/api/v2/lost_reasons/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "memberships",
+      "path": "/api/v2/memberships",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "memberships",
+      "path": "/api/v2/memberships/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications/{id}/dismiss",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications/{id}/read",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications/{id}/undismiss",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "notifications",
+      "path": "/api/v2/notifications/{id}/unread",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_memberships",
+      "path": "/api/v2/organization_memberships",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "organization_memberships",
+      "path": "/api/v2/organization_memberships/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_memberships",
+      "path": "/api/v2/organization_memberships/{id}/clear_notifications",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_memberships",
+      "path": "/api/v2/organization_memberships/{id}/dismiss_notifications",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_memberships",
+      "path": "/api/v2/organization_memberships/{id}/read_notifications",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_subscriptions",
+      "path": "/api/v2/organization_subscriptions/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_subscriptions",
+      "path": "/api/v2/organization_subscriptions/{id}/cancel",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_subscriptions",
+      "path": "/api/v2/organization_subscriptions/{id}/reactivate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organization_subscriptions",
+      "path": "/api/v2/organization_subscriptions/{id}/retry_last_payment",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organizations",
+      "path": "/api/v2/organizations",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "organizations",
+      "path": "/api/v2/organizations/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "organizations",
+      "path": "/api/v2/organizations/{id}/resend_code",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "overheads",
+      "path": "/api/v2/overheads",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "overheads",
+      "path": "/api/v2/overheads/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "overheads",
+      "path": "/api/v2/overheads/{id}/recalculate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "page_versions",
+      "path": "/api/v2/page_versions",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "page_versions",
+      "path": "/api/v2/page_versions/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/create_with_markdown",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/append_html",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/append_markdown",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/move",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/publish",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/replace_body_with_html",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/replace_body_with_markdown",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pages",
+      "path": "/api/v2/pages/{id}/unpublish",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "passwords",
+      "path": "/api/v2/passwords",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "passwords",
+      "path": "/api/v2/passwords/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "payment_reminder_sequences",
+      "path": "/api/v2/payment_reminder_sequences",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "payment_reminder_sequences",
+      "path": "/api/v2/payment_reminder_sequences/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "payments",
+      "path": "/api/v2/payments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "payments",
+      "path": "/api/v2/payments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/merge",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/activate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/deactivate",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/invite",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/regenerate_recovery_codes",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/resend",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "people",
+      "path": "/api/v2/people/{id}/virtualize",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pipelines",
+      "path": "/api/v2/pipelines",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "pipelines",
+      "path": "/api/v2/pipelines/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "placeholder_usages",
+      "path": "/api/v2/placeholder_usages",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "placeholder_usages",
+      "path": "/api/v2/placeholder_usages/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "placeholders",
+      "path": "/api/v2/placeholders",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "placeholders",
+      "path": "/api/v2/placeholders/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "prices",
+      "path": "/api/v2/prices",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "prices",
+      "path": "/api/v2/prices/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "project_assignments",
+      "path": "/api/v2/project_assignments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "project_assignments",
+      "path": "/api/v2/project_assignments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/apply_navigation_tabs",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/change_workflow",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/subscribe",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "projects",
+      "path": "/api/v2/projects/{id}/unsubscribe",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "proposals",
+      "path": "/api/v2/proposals",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "proposals",
+      "path": "/api/v2/proposals/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "proposals",
+      "path": "/api/v2/proposals/{id}/sync",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "proposals",
+      "path": "/api/v2/proposals/{id}/sync_status",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "pulses",
+      "path": "/api/v2/pulses",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "pulses",
+      "path": "/api/v2/pulses/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "pulses",
+      "path": "/api/v2/pulses/{id}/send",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders/{id}/export",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders/{id}/export_update",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "purchase_orders",
+      "path": "/api/v2/purchase_orders/{id}/send",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "rate_cards",
+      "path": "/api/v2/rate_cards",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "rate_cards",
+      "path": "/api/v2/rate_cards/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "rate_cards",
+      "path": "/api/v2/rate_cards/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "rate_cards",
+      "path": "/api/v2/rate_cards/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "rate_cards",
+      "path": "/api/v2/rate_cards/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "report_categories",
+      "path": "/api/v2/report_categories",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "report_categories",
+      "path": "/api/v2/report_categories/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/booking_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/budget_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/company_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/deal_funnel_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/deal_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/entitlement_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/expense_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/financial_item_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/invoice_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/line_item_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/page_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/payment_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/payroll_item_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/person_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/price_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/project_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/proposal_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/salary_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/service_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/survey_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/task_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/time_entry_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/time_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "reports",
+      "path": "/api/v2/reports/timesheet_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "resource_requests",
+      "path": "/api/v2/resource_requests",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "resource_requests",
+      "path": "/api/v2/resource_requests/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "resource_requests",
+      "path": "/api/v2/resource_requests/{id}/cancel",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "resource_requests",
+      "path": "/api/v2/resource_requests/{id}/reject",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "resource_requests",
+      "path": "/api/v2/resource_requests/{id}/resolve",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "revenue_distributions",
+      "path": "/api/v2/revenue_distributions",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "revenue_distributions",
+      "path": "/api/v2/revenue_distributions/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "roles",
+      "path": "/api/v2/roles",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "roles",
+      "path": "/api/v2/roles/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "salaries",
+      "path": "/api/v2/salaries",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "salaries",
+      "path": "/api/v2/salaries/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "sections",
+      "path": "/api/v2/sections",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "sections",
+      "path": "/api/v2/sections/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "service_assignments",
+      "path": "/api/v2/service_assignments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "service_assignments",
+      "path": "/api/v2/service_assignments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "service_type_assignments",
+      "path": "/api/v2/service_type_assignments",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "service_type_assignments",
+      "path": "/api/v2/service_type_assignments/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "service_types",
+      "path": "/api/v2/service_types",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "service_types",
+      "path": "/api/v2/service_types/merge",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "service_types",
+      "path": "/api/v2/service_types/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "service_types",
+      "path": "/api/v2/service_types/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "services",
+      "path": "/api/v2/services",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "services",
+      "path": "/api/v2/services/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "sessions",
+      "path": "/api/v2/sessions",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "sessions",
+      "path": "/api/v2/sessions/machine",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "sessions",
+      "path": "/api/v2/sessions/{id}",
+      "methods": [
+        "DELETE"
+      ]
+    },
+    {
+      "group": "sessions",
+      "path": "/api/v2/sessions/{id}/validate_otp",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "group": "subsidiaries",
+      "path": "/api/v2/subsidiaries",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "subsidiaries",
+      "path": "/api/v2/subsidiaries/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "subsidiaries",
+      "path": "/api/v2/subsidiaries/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "survey_field_options",
+      "path": "/api/v2/survey_field_options",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "survey_field_options",
+      "path": "/api/v2/survey_field_options/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "survey_field_options",
+      "path": "/api/v2/survey_field_options/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "survey_fields",
+      "path": "/api/v2/survey_fields",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "survey_fields",
+      "path": "/api/v2/survey_fields/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "survey_fields",
+      "path": "/api/v2/survey_fields/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "survey_responses",
+      "path": "/api/v2/survey_responses",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "survey_responses",
+      "path": "/api/v2/survey_responses/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "surveys",
+      "path": "/api/v2/surveys",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "surveys",
+      "path": "/api/v2/surveys/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "surveys",
+      "path": "/api/v2/surveys/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tags",
+      "path": "/api/v2/tags",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "tags",
+      "path": "/api/v2/tags/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "task_dependencies",
+      "path": "/api/v2/task_dependencies",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "task_dependencies",
+      "path": "/api/v2/task_dependencies/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/{id}/move",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/{id}/reposition",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "task_lists",
+      "path": "/api/v2/task_lists/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tasks",
+      "path": "/api/v2/tasks",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "tasks",
+      "path": "/api/v2/tasks/copy",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "group": "tasks",
+      "path": "/api/v2/tasks/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tasks",
+      "path": "/api/v2/tasks/{id}/reposition",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tax_rates",
+      "path": "/api/v2/tax_rates",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "tax_rates",
+      "path": "/api/v2/tax_rates/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tax_rates",
+      "path": "/api/v2/tax_rates/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "tax_rates",
+      "path": "/api/v2/tax_rates/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "team_memberships",
+      "path": "/api/v2/team_memberships",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "team_memberships",
+      "path": "/api/v2/team_memberships/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "teams",
+      "path": "/api/v2/teams",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "teams",
+      "path": "/api/v2/teams/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "templates",
+      "path": "/api/v2/templates",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "templates",
+      "path": "/api/v2/templates/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/approve",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/unapprove",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/{id}/approve",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/{id}/reject",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/{id}/unapprove",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entries",
+      "path": "/api/v2/time_entries/{id}/unreject",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_entry_versions",
+      "path": "/api/v2/time_entry_versions",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "time_entry_versions",
+      "path": "/api/v2/time_entry_versions/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "time_tracking_policies",
+      "path": "/api/v2/time_tracking_policies",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "time_tracking_policies",
+      "path": "/api/v2/time_tracking_policies/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_tracking_policies",
+      "path": "/api/v2/time_tracking_policies/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "time_tracking_policies",
+      "path": "/api/v2/time_tracking_policies/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "timers",
+      "path": "/api/v2/timers",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "timers",
+      "path": "/api/v2/timers/{id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "timers",
+      "path": "/api/v2/timers/{id}/stop",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "timesheets",
+      "path": "/api/v2/timesheets",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "timesheets",
+      "path": "/api/v2/timesheets/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "todos",
+      "path": "/api/v2/todos",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "todos",
+      "path": "/api/v2/todos/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "users",
+      "path": "/api/v2/users",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "users",
+      "path": "/api/v2/users/{id}",
+      "methods": [
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "users",
+      "path": "/api/v2/users/{id}/update_password",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "webhook_logs",
+      "path": "/api/v2/webhook_logs",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "group": "webhooks",
+      "path": "/api/v2/webhooks",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "webhooks",
+      "path": "/api/v2/webhooks/{id}",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "group": "widgets",
+      "path": "/api/v2/widgets",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "widgets",
+      "path": "/api/v2/widgets/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "workflow_statuses",
+      "path": "/api/v2/workflow_statuses",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "workflow_statuses",
+      "path": "/api/v2/workflow_statuses/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "workflows",
+      "path": "/api/v2/workflows",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "group": "workflows",
+      "path": "/api/v2/workflows/{id}",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH"
+      ]
+    },
+    {
+      "group": "workflows",
+      "path": "/api/v2/workflows/{id}/archive",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "group": "workflows",
+      "path": "/api/v2/workflows/{id}/restore",
+      "methods": [
+        "PATCH"
+      ]
+    }
+  ]
+}
