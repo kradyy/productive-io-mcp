@@ -17,45 +17,6 @@ MCP server for Productive API (`https://api.productive.io/api/v2`).
    - `PRODUCTIVE_ORGANIZATION_ID`
    - `PRODUCTIVE_TOKEN`
 
-## Run
-
-```bash
-npm start
-```
-
-The server uses MCP stdio transport.
-
-## Do I Need `npm start`?
-
-- For normal MCP usage in Claude or Codex, you usually do **not** need to manually run `npm start`.
-- Your MCP client launches the server process itself from config.
-- Use `npm start` only when you want to run or debug the server manually.
-
-## Connect to Codex
-
-Add the server once:
-
-```bash
-codex mcp add productive \
-  --env PRODUCTIVE_BASE_URL=https://api.productive.io/api/v2 \
-  --env PRODUCTIVE_ORGANIZATION_ID=YOUR_ORG_ID \
-  --env PRODUCTIVE_TOKEN=YOUR_TOKEN \
-  -- node "/absolute/path/to/productive_mcp/src/index.js"
-```
-
-Verify:
-
-```bash
-codex mcp list
-codex mcp get productive
-```
-
-Remove later if needed:
-
-```bash
-codex mcp remove productive
-```
-
 ## Connect to Claude
 
 ### Claude Code (recommended)
@@ -99,6 +60,31 @@ Edit `claude_desktop_config.json` and add:
 }
 ```
 
+## Connect to Codex
+
+Add the server once:
+
+```bash
+codex mcp add productive \
+  --env PRODUCTIVE_BASE_URL=https://api.productive.io/api/v2 \
+  --env PRODUCTIVE_ORGANIZATION_ID=YOUR_ORG_ID \
+  --env PRODUCTIVE_TOKEN=YOUR_TOKEN \
+  -- node "/absolute/path/to/productive_mcp/src/index.js"
+```
+
+Verify:
+
+```bash
+codex mcp list
+codex mcp get productive
+```
+
+Remove later if needed:
+
+```bash
+codex mcp remove productive
+```
+
 ## Why MCP Instead of Static JSON Instructions?
 
 - A static JSON/instruction file is useful for documentation only.
@@ -121,3 +107,15 @@ Edit `claude_desktop_config.json` and add:
 `data/endpoints.json` is generated from Productive official OpenAPI spec:
 
 - `https://developer.productive.io/reference/download_spec?format=json`
+
+## Manual Run (Optional)
+
+```bash
+npm start
+```
+
+The server uses MCP stdio transport.
+
+For normal MCP usage in Claude or Codex, you usually do **not** need to manually run `npm start`.
+Your MCP client launches the server process itself from config.
+Use `npm start` only when you want to run or debug the server manually.
