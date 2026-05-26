@@ -27,9 +27,34 @@ The server uses MCP stdio transport.
 
 ## Do I Need `npm start`?
 
-- For normal MCP usage in Claude, you usually do **not** need to manually run `npm start`.
-- Claude can launch the server process itself from MCP config.
+- For normal MCP usage in Claude or Codex, you usually do **not** need to manually run `npm start`.
+- Your MCP client launches the server process itself from config.
 - Use `npm start` only when you want to run or debug the server manually.
+
+## Connect to Codex
+
+Add the server once:
+
+```bash
+codex mcp add productive \
+  --env PRODUCTIVE_BASE_URL=https://api.productive.io/api/v2 \
+  --env PRODUCTIVE_ORGANIZATION_ID=YOUR_ORG_ID \
+  --env PRODUCTIVE_TOKEN=YOUR_TOKEN \
+  -- node "/absolute/path/to/productive_mcp/src/index.js"
+```
+
+Verify:
+
+```bash
+codex mcp list
+codex mcp get productive
+```
+
+Remove later if needed:
+
+```bash
+codex mcp remove productive
+```
 
 ## Connect to Claude
 
