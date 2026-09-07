@@ -104,6 +104,7 @@ codex mcp remove productive
 - `productive_list_comments`
 - `productive_list_task_comments`
 - `productive_get_comment`
+- `productive_get_attachment` — downloads a comment attachment; images are returned inline
 
 ## Endpoint Source
 

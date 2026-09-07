@@ -315,7 +315,7 @@ function buildServer() {
   server.registerTool(
     "productive_list_task_comments",
     {
-      description: "Lists comments for a specific task id.",
+      description: "Lists comments for a specific task id. Attachments (screenshots etc.) are included; pass an attachment id to productive_get_attachment to view it.",
       inputSchema: {
         task_id: z
           .union([z.string(), z.number().int()])
@@ -342,6 +342,7 @@ function buildServer() {
             "filter[task_id][eq]": String(task_id),
             "page[size]": page_size,
             sort,
+            include: "attachments",
           },
         });
         return textResult(result);
@@ -354,7 +355,7 @@ function buildServer() {
   server.registerTool(
     "productive_get_comment",
     {
-      description: "Fetches one comment by id.",
+      description: "Fetches one comment by id, including its attachments.",
       inputSchema: {
         id: z
           .union([z.string(), z.number().int()])
@@ -366,8 +367,54 @@ function buildServer() {
         const result = await productiveRequest({
           method: "GET",
           path: `/comments/${id}`,
+          query: { include: "attachments" },
         });
         return textResult(result);
+      } catch (error) {
+        return errorResult(error);
+      }
+    },
+  );
+
+  server.registerTool(
+    "productive_get_attachment",
+    {
+      description:
+        "Downloads an attachment (e.g. a screenshot from a comment) by id. Images are returned inline so they can be viewed; other files are described. Optionally saves the file to save_to.",
+      inputSchema: {
+        id: z
+          .union([z.string(), z.number().int()])
+          .describe("Attachment id, e.g. 9462083 or \"9462083\"."),
+        save_to: z.string().optional().describe("Optional absolute file path to save the downloaded file to."),
+      },
+    },
+    async ({ id, save_to }) => {
+      try {
+        const meta = await productiveRequest({ method: "GET", path: `/attachments/${id}` });
+        const attrs = meta.data?.data?.attributes || {};
+        // files.productive.io serves the binary when the API token is passed as ?token=
+        const url = new URL(attrs.url);
+        url.searchParams.set("token", envOrThrow("PRODUCTIVE_TOKEN"));
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Attachment download failed with status ${response.status}`);
+        }
+        const buffer = Buffer.from(await response.arrayBuffer());
+        if (save_to) {
+          await fs.writeFile(save_to, buffer);
+        }
+        const info = {
+          id: String(id),
+          name: attrs.name,
+          content_type: attrs.content_type,
+          size: buffer.length,
+          ...(save_to ? { saved_to: save_to } : {}),
+        };
+        const content = [{ type: "text", text: JSON.stringify(info, null, 2) }];
+        if ((attrs.content_type || "").startsWith("image/")) {
+          content.push({ type: "image", data: buffer.toString("base64"), mimeType: attrs.content_type });
+        }
+        return { content, structuredContent: info };
       } catch (error) {
         return errorResult(error);
       }
