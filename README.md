@@ -16,6 +16,22 @@ MCP server for Productive API (`https://api.productive.io/api/v2`).
    - `PRODUCTIVE_BASE_URL` (default: `https://api.productive.io/api/v2`)
    - `PRODUCTIVE_ORGANIZATION_ID`
    - `PRODUCTIVE_TOKEN`
+   - `PRODUCTIVE_DRAFT_ONLY` (default: `true`)
+
+## Safety: draft-only writes
+
+By default (unset, or anything other than the literal string `false`), every write this server
+makes is blocked except creating or editing a comment — and those are always forced to
+`draft: true`, even if the caller asks for `draft: false`. A draft is visible only to you in
+Productive; nothing is ever posted or changed live without a human opening Productive and
+clicking Post themselves.
+
+This is enforced in `productiveRequest`, the single function every tool (including the raw
+`productive_request` passthrough) calls, and it's gated by `.env`, not by a tool argument — so it
+can't be flipped from inside a conversation with an agent. To allow full writes, set
+`PRODUCTIVE_DRAFT_ONLY=false` in your `.env` and restart the server.
+
+See `src/draft-only.test.mjs` for the guard's behavior spelled out as runnable checks.
 
 ## Connect to Claude
 

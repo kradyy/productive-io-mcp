@@ -1,4 +1,4 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,6 +11,11 @@ const DEFAULT_BASE_URL = "https://api.productive.io/api/v2";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ENDPOINT_INDEX_PATH = path.resolve(__dirname, "../data/endpoints.json");
+
+// Load .env from next to this file, not from process.cwd() — an MCP client typically spawns
+// this server with its own cwd, not this repo's, so the plain "dotenv/config" default would
+// silently miss the file (confirmed: it does, when cwd != this directory).
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 let endpointIndexCache = null;
 
@@ -82,12 +87,49 @@ async function parseResponseBody(response) {
   return text;
 }
 
+const WRITE_METHODS = new Set(["POST", "PATCH", "PUT", "DELETE"]);
+const COMMENT_PATH_RE = /^\/comments(\/[^/?]+)?$/;
+const COMMENT_WRITE_METHODS = new Set(["POST", "PATCH"]); // creating/editing a draft; never PUT/DELETE
+
+// Safe by default: unset or anything other than the literal string "false" means draft-only.
+// This is an env var read once at process start, not a tool parameter, so nothing inside a
+// conversation can flip it — changing it requires editing .env and restarting the server.
+export function isDraftOnlyMode() {
+  const raw = process.env.PRODUCTIVE_DRAFT_ONLY;
+  if (raw === undefined || raw.trim() === "") return true;
+  return raw.trim().toLowerCase() !== "false";
+}
+
+// Single choke point: every tool (including the raw productive_request passthrough) calls
+// productiveRequest, so this runs no matter which tool made the call.
+export function enforceDraftOnly({ method, normalizedPath, body }) {
+  if (!isDraftOnlyMode()) return body;
+  const upperMethod = method.toUpperCase();
+  if (!WRITE_METHODS.has(upperMethod)) return body; // GET is always fine
+
+  const isCommentWrite = COMMENT_PATH_RE.test(normalizedPath) && COMMENT_WRITE_METHODS.has(upperMethod);
+  if (!isCommentWrite) {
+    throw new Error(
+      `Blocked by PRODUCTIVE_DRAFT_ONLY: ${upperMethod} ${normalizedPath} is not allowed. ` +
+        `Only creating or editing a comment as a draft is permitted while draft-only mode is on ` +
+        `(set PRODUCTIVE_DRAFT_ONLY=false in .env and restart the server to lift this).`,
+    );
+  }
+
+  // Force draft:true regardless of what was passed in, so a comment can never post live.
+  const forced = body && typeof body === "object" ? structuredClone(body) : { data: { type: "comments" } };
+  forced.data ||= { type: "comments" };
+  forced.data.attributes = { ...(forced.data.attributes || {}), draft: true };
+  return forced;
+}
+
 async function productiveRequest({ method, path: inputPath, query, body }) {
   const baseUrl = normalizeBaseUrl(process.env.PRODUCTIVE_BASE_URL || DEFAULT_BASE_URL);
   const token = envOrThrow("PRODUCTIVE_TOKEN");
   const organizationId = envOrThrow("PRODUCTIVE_ORGANIZATION_ID");
 
   const normalizedPath = normalizePath(inputPath);
+  const safeBody = enforceDraftOnly({ method, normalizedPath, body });
   const url = new URL(baseUrl + normalizedPath);
   appendQueryParams(url.searchParams, query);
 
@@ -105,7 +147,7 @@ async function productiveRequest({ method, path: inputPath, query, body }) {
   const response = await fetch(url, {
     method: upperMethod,
     headers,
-    body: body ? JSON.stringify(body) : undefined,
+    body: safeBody ? JSON.stringify(safeBody) : undefined,
   });
 
   const parsedBody = await parseResponseBody(response);
@@ -368,6 +410,42 @@ function buildServer() {
           method: "GET",
           path: `/comments/${id}`,
           query: { include: "attachments" },
+        });
+        return textResult(result);
+      } catch (error) {
+        return errorResult(error);
+      }
+    },
+  );
+
+  server.registerTool(
+    "productive_create_draft_comment",
+    {
+      description:
+        "Creates a DRAFT comment on a task. Drafts are visible only to you in Productive and are " +
+        "never posted — this tool always sets draft:true regardless of PRODUCTIVE_DRAFT_ONLY. Open " +
+        "the task in Productive and click Post yourself when you're ready to send it.",
+      inputSchema: {
+        task_id: z
+          .union([z.string(), z.number().int()])
+          .describe("Task id to comment on, e.g. 20159260."),
+        body: z.string().describe("Comment body (plain text or HTML)."),
+      },
+    },
+    async ({ task_id, body }) => {
+      try {
+        const result = await productiveRequest({
+          method: "POST",
+          path: "/comments",
+          body: {
+            data: {
+              type: "comments",
+              attributes: { body, draft: true },
+              relationships: {
+                task: { data: { type: "tasks", id: String(task_id) } },
+              },
+            },
+          },
         });
         return textResult(result);
       } catch (error) {
