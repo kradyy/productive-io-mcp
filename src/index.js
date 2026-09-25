@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -11,11 +12,12 @@ const DEFAULT_BASE_URL = "https://api.productive.io/api/v2";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ENDPOINT_INDEX_PATH = path.resolve(__dirname, "../data/endpoints.json");
+const ENV_FILE_PATH = path.resolve(__dirname, "../.env");
 
 // Load .env from next to this file, not from process.cwd() — an MCP client typically spawns
 // this server with its own cwd, not this repo's, so the plain "dotenv/config" default would
 // silently miss the file (confirmed: it does, when cwd != this directory).
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config({ path: ENV_FILE_PATH });
 
 let endpointIndexCache = null;
 
@@ -92,18 +94,29 @@ const COMMENT_PATH_RE = /^\/comments(\/[^/?]+)?$/;
 const COMMENT_WRITE_METHODS = new Set(["POST", "PATCH"]); // creating/editing a draft; never PUT/DELETE
 
 // Safe by default: unset or anything other than the literal string "false" means draft-only.
-// This is an env var read once at process start, not a tool parameter, so nothing inside a
-// conversation can flip it — changing it requires editing .env and restarting the server.
-export function isDraftOnlyMode() {
-  const raw = process.env.PRODUCTIVE_DRAFT_ONLY;
+// Re-read from .env on EVERY call, not just process.env cached at process start. A long-lived
+// server process (one per MCP client connection; these can live for days) must never keep
+// enforcing — or keep NOT enforcing — a value that was edited out from under it: that silent
+// staleness is exactly what let a live comment post while someone believed the lock was on.
+// Not a tool parameter either way, so nothing inside a conversation can flip it.
+export function isDraftOnlyMode(envPath = ENV_FILE_PATH) {
+  let raw = process.env.PRODUCTIVE_DRAFT_ONLY;
+  try {
+    const fileEnv = dotenv.parse(readFileSync(envPath, "utf8"));
+    if (Object.hasOwn(fileEnv, "PRODUCTIVE_DRAFT_ONLY")) {
+      raw = fileEnv.PRODUCTIVE_DRAFT_ONLY;
+    }
+  } catch {
+    // .env missing or unreadable: fall back to process.env (still safe-by-default below).
+  }
   if (raw === undefined || raw.trim() === "") return true;
   return raw.trim().toLowerCase() !== "false";
 }
 
 // Single choke point: every tool (including the raw productive_request passthrough) calls
 // productiveRequest, so this runs no matter which tool made the call.
-export function enforceDraftOnly({ method, normalizedPath, body }) {
-  if (!isDraftOnlyMode()) return body;
+export function enforceDraftOnly({ method, normalizedPath, body }, envPath = ENV_FILE_PATH) {
+  if (!isDraftOnlyMode(envPath)) return body;
   const upperMethod = method.toUpperCase();
   if (!WRITE_METHODS.has(upperMethod)) return body; // GET is always fine
 
@@ -112,7 +125,7 @@ export function enforceDraftOnly({ method, normalizedPath, body }) {
     throw new Error(
       `Blocked by PRODUCTIVE_DRAFT_ONLY: ${upperMethod} ${normalizedPath} is not allowed. ` +
         `Only creating or editing a comment as a draft is permitted while draft-only mode is on ` +
-        `(set PRODUCTIVE_DRAFT_ONLY=false in .env and restart the server to lift this).`,
+        `(set PRODUCTIVE_DRAFT_ONLY=false in .env to lift this — takes effect immediately, no restart needed).`,
     );
   }
 
