@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import * as z from "zod/v4";
+import { markdownToHtml } from "./markdown.js";
 
 const JSON_API_CONTENT_TYPE = "application/vnd.api+json";
 const DEFAULT_BASE_URL = "https://api.productive.io/api/v2";
@@ -442,7 +443,7 @@ function buildServer() {
         task_id: z
           .union([z.string(), z.number().int()])
           .describe("Task id to comment on, e.g. 20159260."),
-        body: z.string().describe("Comment body (plain text or HTML)."),
+        body: z.string().describe("Comment body. Markdown is converted to HTML (headings, **bold**, lists, `code`, links); HTML is passed through."),
       },
     },
     async ({ task_id, body }) => {
@@ -453,7 +454,7 @@ function buildServer() {
           body: {
             data: {
               type: "comments",
-              attributes: { body, draft: true },
+              attributes: { body: markdownToHtml(body), draft: true },
               relationships: {
                 task: { data: { type: "tasks", id: String(task_id) } },
               },
